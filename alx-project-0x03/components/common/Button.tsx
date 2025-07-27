@@ -1,10 +1,5 @@
-interface ButtonProps {
-  buttonLabel: string;
-  buttonSize?: string;
-  buttonBackgroundColor?: "red" | "blue" | "orange" | "green";
-  pageRoute?: string;
-  action?: (args: { pageRoute: string }) => void;
-}
+import React from "react";
+import { ButtonProps } from "../../interface";
 
 const Button = ({
   buttonLabel,
