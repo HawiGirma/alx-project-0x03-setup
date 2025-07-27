@@ -2,13 +2,15 @@ interface ButtonProps {
   buttonLabel: string;
   buttonSize?: string;
   buttonBackgroundColor?: "red" | "blue" | "orange" | "green";
-  action?: () => void;
+  pageRoute?: string;
+  action?: (args: { pageRoute: string }) => void;
 }
 
 const Button = ({
   buttonLabel,
   buttonSize,
   buttonBackgroundColor,
+  pageRoute,
   action,
 }: ButtonProps) => {
   const backgroundColorClass = buttonBackgroundColor
@@ -22,7 +24,7 @@ const Button = ({
 
   return (
     <button
-      onClick={action}
+      onClick={action && pageRoute ? () => action({ pageRoute }) : undefined}
       className={`${backgroundColorClass} ${buttonSize} px-6 py-2 text-sm font-semibold rounded-lg hover:${backgroundColorClass}/50 transition duration-300 text-white`}
     >
       {buttonLabel}
